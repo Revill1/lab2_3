@@ -80,7 +80,16 @@ public class SimilarityFinderTest {
 		
 		double result = finder.calculateJackardSimilarity(seq1, seq2);
 		assertEquals(0.125, result, 0.01);
-		assertThat(Search.check(searcher, searcher.getClass().getMethod("search", int.class, int[].class)), Matchers.is(3));
+	}
+	
+	@Test
+	public void similarityFinderTestSimilarSeq4() throws Exception {
+		SimilarityFinder finder = new SimilarityFinder(searcher);
+		int[] seq1 = {};
+		int[] seq2 = {20,3,100,3000};
+		
+		double result = finder.calculateJackardSimilarity(seq1, seq2);
+		assertEquals(0, result, 0.01);
 	}
 	
 }
